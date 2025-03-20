@@ -1,0 +1,288 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* CSS Variables & Global Reset */
+:root {
+  --primary-color: #4f46e5; /* Indigo */
+  --secondary-color: #ec4899; /* Pink */
+  --accent-color: #10b981; /* Emerald */
+  --bg-color: #f0f4f8;
+  --card-bg: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --animation-speed: 0.5s;
+  /* Subject theme colors */
+  --physics-light: #e8f5e9;   /* light green */
+  --chemistry-light: #fff3e0; /* light orange */
+  --bio-light: #e0f7fa;       /* light cyan */
+  /* Subtopic colors */
+  --subtopic-color-1: #fde2e4;
+  --subtopic-color-2: #f9e2ae;
+  --subtopic-color-3: #e0ece4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.view {
+  margin-top: 2rem;
+  animation: fadeIn 0.6s ease both;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.back-btn,
+.action-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  font-weight: 600;
+}
+
+.back-btn:hover,
+.action-btn:hover {
+  background: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* Grid Container for Cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card Styles */
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  padding: 1.2rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  cursor: pointer;
+  text-align: center;
+  animation: scaleIn var(--animation-speed) ease both;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  border: 2px solid var(--primary-color);
+}
+
+/* Subject Themes */
+.subject-physics { background-color: var(--physics-light); }
+.subject-chemistry { background-color: var(--chemistry-light); }
+.subject-biology { background-color: var(--bio-light); }
+
+/* Chapter Detail View */
+.chapter-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  animation: slideIn 0.6s ease both;
+}
+
+.chapter-detail-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+
+.chapter-info h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.progress-label {
+  font-weight: bold;
+}
+
+.chapter-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Subtopics List */
+.subtopics-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subtopic {
+  background: var(--card-bg);
+  padding: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 7px var(--shadow-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn var(--animation-speed) ease both;
+  cursor: pointer;
+}
+
+.subtopic label {
+  flex: 1;
+  min-width: 150px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.subtopic input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.subtopic select,
+.subtopic textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.subtopic textarea {
+  resize: vertical;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  background: var(--primary-color);
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header h1 { font-size: 1.8rem; }
+  .action-btn, .back-btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
+  .grid-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .chapter-detail-header { flex-direction: column; align-items: flex-start; }
+  .chapter-detail-header img { margin-bottom: 1rem; }
+}
