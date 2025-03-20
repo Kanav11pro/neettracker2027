@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NEET Study Tracker</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Optional: include Supabase client if needed in the future -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
 </head>
 <body>
   <header>
     <h1>NEET Study Tracker</h1>
     <nav>
+      <!-- For now, a simple nav with Home link -->
       <a href="index.html">Home</a>
-      <a href="weak.html">Weak Areas</a>
     </nav>
   </header>
   <main>
@@ -41,14 +43,14 @@
         <div class="chapter-info">
           <h2 id="chapter-title">Chapter Name</h2>
           <div class="progress-section">
-            <span class="progress-label">Completion Progress:</span>
+            <span class="progress-label">Completion:</span>
             <div class="progress-bar">
               <div id="progress-fill" class="progress-fill"></div>
             </div>
             <span id="progress-percent">0%</span>
           </div>
           <div class="chapter-actions">
-            <button id="mark-all-complete" class="action-btn">Mark All as Complete</button>
+            <button id="mark-all-complete" class="action-btn">Mark All Complete</button>
             <button id="reset-chapter" class="action-btn">Reset Chapter</button>
           </div>
         </div>
