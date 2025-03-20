@@ -3,18 +3,18 @@
 
 /* CSS Variables & Global Reset */
 :root {
-  --primary-color: #4f46e5; /* Indigo */
-  --secondary-color: #ec4899; /* Pink */
-  --accent-color: #10b981; /* Emerald */
+  --primary-color: #4f46e5;
+  --secondary-color: #ec4899;
+  --accent-color: #10b981;
   --bg-color: #f0f4f8;
   --card-bg: #fff;
   --shadow-color: rgba(0, 0, 0, 0.15);
   --transition-speed: 0.3s;
   --animation-speed: 0.5s;
   /* Subject theme colors */
-  --physics-light: #e8f5e9;   /* light green */
-  --chemistry-light: #fff3e0; /* light orange */
-  --bio-light: #e0f7fa;       /* light cyan */
+  --physics-light: #e8f5e9;
+  --chemistry-light: #fff3e0;
+  --bio-light: #e0f7fa;
   /* Subtopic colors */
   --subtopic-color-1: #fde2e4;
   --subtopic-color-2: #f9e2ae;
@@ -80,7 +80,7 @@ main {
 
 .view {
   margin-top: 2rem;
-  animation: fadeIn 0.6s ease both;
+  animation: fadeIn var(--animation-speed) ease both;
 }
 
 .hidden {
@@ -114,34 +114,28 @@ main {
   transform: scale(1.05);
 }
 
-/* Grid Container for Cards */
+/* Grid Container */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-/* Card Styles */
+/* Cards */
 .card {
   background: var(--card-bg);
   border-radius: 10px;
   box-shadow: 0 4px 10px var(--shadow-color);
   padding: 1.2rem;
+  text-align: center;
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
   cursor: pointer;
-  text-align: center;
   animation: scaleIn var(--animation-speed) ease both;
 }
 
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px var(--shadow-color);
-}
-
-.card h3 {
-  margin: 0.5rem 0;
-  font-size: 1.25rem;
-  color: var(--primary-color);
 }
 
 .card img {
@@ -151,6 +145,12 @@ main {
   border-radius: 50%;
   margin-bottom: 0.5rem;
   border: 2px solid var(--primary-color);
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
 }
 
 /* Subject Themes */
@@ -165,7 +165,7 @@ main {
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
-  animation: slideIn 0.6s ease both;
+  animation: slideIn var(--animation-speed) ease both;
 }
 
 .chapter-detail-header img {
@@ -216,8 +216,8 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  animation: fadeIn var(--animation-speed) ease both;
   cursor: pointer;
+  animation: fadeIn var(--animation-speed) ease both;
 }
 
 .subtopic label {
@@ -229,7 +229,6 @@ main {
 
 .subtopic input[type="checkbox"] {
   transform: scale(1.2);
-  cursor: pointer;
   pointer-events: none;
 }
 
@@ -278,7 +277,7 @@ main {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   header h1 { font-size: 1.8rem; }
   .action-btn, .back-btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
