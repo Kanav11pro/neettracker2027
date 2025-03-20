@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEET Study Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>NEET Study Tracker</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="weak.html">Weak Areas</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Subjects View -->
+    <section id="subjects-view" class="view fadeIn">
+      <h2>Select a Subject</h2>
+      <div id="subjects-container" class="grid-container"></div>
+    </section>
+
+    <!-- Chapters View -->
+    <section id="chapters-view" class="view hidden fadeIn">
+      <div class="header-actions">
+        <button id="back-to-subjects" class="back-btn">← Back to Subjects</button>
+        <button id="reset-subject" class="action-btn">Reset Subject Progress</button>
+      </div>
+      <h2 id="subject-title">Subject Name</h2>
+      <div id="chapters-container" class="grid-container"></div>
+    </section>
+
+    <!-- Chapter Detail View -->
+    <section id="chapter-detail-view" class="view hidden fadeIn">
+      <div class="header-actions">
+        <button id="back-to-chapters" class="back-btn">← Back to Chapters</button>
+      </div>
+      <div class="chapter-detail-header">
+        <img id="chapter-image" src="" alt="Chapter Image" />
+        <div class="chapter-info">
+          <h2 id="chapter-title">Chapter Name</h2>
+          <div class="progress-section">
+            <span class="progress-label">Completion Progress:</span>
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="chapter-actions">
+            <button id="mark-all-complete" class="action-btn">Mark All as Complete</button>
+            <button id="reset-chapter" class="action-btn">Reset Chapter</button>
+          </div>
+        </div>
+      </div>
+      <div id="subtopics-container" class="subtopics-list"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
