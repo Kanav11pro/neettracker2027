@@ -87,6 +87,70 @@ const chemistryChapters = [
   { name: "Salt Analysis", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com/your-full-url-research.png&w=256&q=75" }
 ];
 
+
+
+
+
+// Biology chapters array (Class XI + Class XII)
+const biologyChapters = [
+  // Class XI
+  { name: "1. The Living World", img: "https://via.placeholder.com/80?text=Living+World" },
+  { name: "2. Biological Classification", img: "https://via.placeholder.com/80?text=Biological+Classification" },
+  { name: "3. Plant Kingdom", img: "https://via.placeholder.com/80?text=Plant+Kingdom" },
+  { name: "4. Animal Kingdom", img: "https://via.placeholder.com/80?text=Animal+Kingdom" },
+  { name: "5. Morphology of Flowering Plants", img: "https://via.placeholder.com/80?text=Morphology+of+Flowering+Plants" },
+  { name: "6. Anatomy of Flowering Plants", img: "https://via.placeholder.com/80?text=Anatomy+of+Flowering+Plants" },
+  { name: "7. Structural Organization in Animals", img: "https://via.placeholder.com/80?text=Structural+Organization+in+Animals" },
+  { name: "8. Cell: The Unit of Life", img: "https://via.placeholder.com/80?text=Cell+Unit+of+Life" },
+  { name: "9. Biomolecules", img: "https://via.placeholder.com/80?text=Biomolecules" },
+  { name: "10. Cell Cycle and Cell Division", img: "https://via.placeholder.com/80?text=Cell+Cycle+%26+Division" },
+  { name: "11. Photosynthesis in Higher Plants", img: "https://via.placeholder.com/80?text=Photosynthesis" },
+  { name: "12. Respiration in Plants", img: "https://via.placeholder.com/80?text=Respiration+in+Plants" },
+  { name: "13. Plant Growth and Development", img: "https://via.placeholder.com/80?text=Plant+Growth" },
+  { name: "14. Breathing and Exchange of Gases", img: "https://via.placeholder.com/80?text=Breathing+%26+Exchange" },
+  { name: "15. Body Fluids and Circulation", img: "https://via.placeholder.com/80?text=Body+Fluids+%26+Circulation" },
+  { name: "16. Excretory Products and their Elimination", img: "https://via.placeholder.com/80?text=Excretory+Products" },
+  { name: "17. Locomotion and Movement", img: "https://via.placeholder.com/80?text=Locomotion+%26+Movement" },
+  { name: "18. Neural Control and Coordination", img: "https://via.placeholder.com/80?text=Neural+Control" },
+  { name: "19. Chemical Coordination and Integration", img: "https://via.placeholder.com/80?text=Chemical+Coordination" },
+
+  // Class XII
+  { name: "1. Reproduction in Organism", img: "https://via.placeholder.com/80?text=Reproduction+in+Organism" },
+  { name: "2. Sexual Reproduction in Flowering Plants", img: "https://via.placeholder.com/80?text=Sexual+Reproduction+in+Plants" },
+  { name: "3. Human Reproduction", img: "https://via.placeholder.com/80?text=Human+Reproduction" },
+  { name: "4. Reproductive Health", img: "https://via.placeholder.com/80?text=Reproductive+Health" },
+  { name: "5. Principles of Inheritance and Variation", img: "https://via.placeholder.com/80?text=Inheritance+%26+Variation" },
+  { name: "6. Molecular Basis of Inheritance", img: "https://via.placeholder.com/80?text=Molecular+Basis+of+Inheritance" },
+  { name: "7. Evolution", img: "https://via.placeholder.com/80?text=Evolution" },
+  { name: "8. Human Health and Diseases", img: "https://via.placeholder.com/80?text=Human+Health+%26+Diseases" },
+  { name: "9. Strategies for Enhancement in Food Production", img: "https://via.placeholder.com/80?text=Food+Production" },
+  { name: "10. Microbes in Human Welfare", img: "https://via.placeholder.com/80?text=Microbes+in+Welfare" },
+  { name: "11. Biotechnology- Principles and Processes", img: "https://via.placeholder.com/80?text=Biotech+Principles" },
+  { name: "12. Biotechnology and its Application", img: "https://via.placeholder.com/80?text=Biotech+Applications" },
+  { name: "13. Organism and Population", img: "https://via.placeholder.com/80?text=Organism+%26+Population" },
+  { name: "14. Ecosystem", img: "https://via.placeholder.com/80?text=Ecosystem" },
+  { name: "15. Biodiversity and its Conservation", img: "https://via.placeholder.com/80?text=Biodiversity+Conservation" },
+  { name: "16. Environmental Issues", img: "https://via.placeholder.com/80?text=Environmental+Issues" }
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Subjects Data: Physics, Chemistry, Biology
 const subjectsData = {
   "Physics": { 
