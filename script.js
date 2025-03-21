@@ -93,7 +93,6 @@ const chemistryChapters = [
 
 // Biology chapters array (Class XI + Class XII)
 const biologyChapters = [
-  // Class XI
   { name: "1. The Living World", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F864c5079-36b5-43e6-879e-e0fc99781aeb-world-animal-day.png&w=256&q=75" },
   { name: "2. Biological Classification", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F9a0d9895-1dd5-4f4b-bdff-c74ac0962c85-frog.png&w=256&q=75" },
   { name: "3. Plant Kingdom", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Ffe8a1916-7f69-4b38-a2c0-650459e3e60b-plant%20(1).png&w=256&q=75" },
@@ -106,7 +105,7 @@ const biologyChapters = [
   { name: "10. Cell Cycle and Cell Division", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Ffc186be3-5533-45bd-9348-9ebb24cc8df6-stem-cells.png&w=256&q=75" },
   { name: "11. Photosynthesis in Higher Plants", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Fcbf1b132-7d11-4fcf-8615-684e142f42ff-photosynthesis.png&w=256&q=75" },
   { name: "12. Respiration in Plants", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F14ba76f9-1750-4e5a-929d-5cb5360a130e-photosynthesis.png&w=256&q=75" },
-  { name: "13. Plant Growth and Development", img: https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F7afc4cd4-f6ee-4671-a1b6-a5ce2d4b50cb-growth.png&w=256&q=75" },
+  { name: "13. Plant Growth and Development", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F7afc4cd4-f6ee-4671-a1b6-a5ce2d4b50cb-growth.png&w=256&q=75" },
   { name: "14. Breathing and Exchange of Gases", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F8ab05047-dec9-49ae-8a26-b389fc91caea-breathing.png&w=256&q=75" },
   { name: "15. Body Fluids and Circulation", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F5effe1a3-41e3-4928-8e16-6fb979fb564c-blood-vessel.png&w=256&q=75" },
   { name: "16. Excretory Products and their Elimination", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Fd3b1686f-5850-4d2a-8a73-3a6dd6a23331-bladder.png&w=256&q=75" },
@@ -114,7 +113,6 @@ const biologyChapters = [
   { name: "18. Neural Control and Coordination", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F118637fd-49e5-440d-a4b8-e5f2dfd336b3-brain.png&w=256&q=75" },
   { name: "19. Chemical Coordination and Integration", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Fcdee5e33-5e17-4eed-ab2d-6b7d85b11496-hormonal-imbalance.png&w=256&q=75" },
 
-  // Class XII
   { name: "1. Reproduction in Organism", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F291d1eaa-a771-4844-8964-4c748ea3a6f4-ovum.png&w=256&q=75" },
   { name: "2. Sexual Reproduction in Flowering Plants", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2Fad8d718f-412e-4e24-a9c9-d979c437b25a-pollination.png&w=256&q=75" },
   { name: "3. Human Reproduction", img: "https://app.esaral.com/_next/image?url=https%3A%2F%2Fmyesaralbucket.s3.amazonaws.com%2FeSaral%2Fimages%2F2024%2F10%2F17%2F27e20361-d6ee-4c1b-ad75-fa59d0a61e5c-embryo.png&w=256&q=75" },
