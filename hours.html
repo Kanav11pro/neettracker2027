@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Ensure proper scaling and prevent user zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Study Master - Weekly Challenge</title>
+  <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #8b5cf6;
+      --accent-color: #10b981;
+      --extra-color: #ffb703;
+      --danger-color: #ef4444;
+      --bg-gradient: linear-gradient(135deg, #1e3c72, #2a5298);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --shadow-color: rgba(0,0,0,0.1);
+      --transition-speed: 0.3s;
+      --animation-speed: 0.6s;
+    }
+
+    /* Global Reset & Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--bg-gradient);
+      color: #2d3748;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+
+    /* Container to center content on mobile */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      margin-bottom: 1.5rem;
+      border-radius: 0 0 20px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      animation: slideDown var(--animation-speed) ease-out both;
+    }
+    header p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 90%;
+      margin: 0 auto;
+      animation: fadeIn 1s ease 0.8s forwards;
+    }
+    header nav {
+      margin-top: 1rem;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: color var(--transition-speed);
+    }
+    header nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Main Layout */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px var(--shadow-color);
+      backdrop-filter: blur(10px);
+      transition: transform var(--transition-speed) ease;
+      animation: fadeInUp var(--animation-speed) ease both;
+      margin: 0 auto;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      font-size: 1.6rem;
+    }
+
+    /* Animated Progress Bar Styles */
+    .progress-bar-wrapper {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    .progress-bar-container {
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 20px;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary-color);
+      width: 0%;
+      transition: width 1s ease-out;
+    }
+    .progress-bar-text {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    /* Countdown Timer */
+    .countdown {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    /* Form Styles */
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    input {
+      padding: 0.8rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+    }
+    button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    td {
+      font-size: 0.85rem;
+    }
+    .delete-btn {
+      color: var(--danger-color);
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 5px;
+      transition: background var(--transition-speed);
+      font-size: 1rem;
+    }
+    .delete-btn:hover {
+      background: #fee2e2;
+    }
+
+
+
+    /* ---------- Updated Login Modal Styles ---------- */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.5s ease both;
+}
+
+.login-modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.6s ease both;
+}
+
+.login-modal-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.login-modal-content input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-modal-content input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(99,102,241,0.4);
+  outline: none;
+}
+
+.login-modal-content button {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.login-modal-content button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.login-error {
+  color: var(--danger-color);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  display: none;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+    /* Previous Weeks Cards */
+    .previous-week-card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      margin-bottom: 1rem;
+      animation: fadeInUp var(--animation-speed) ease both;
+      font-size: 0.9rem;
+    }
+
+    /* Motivational Message */
+    .motivation-message {
+      text-align: center;
+      padding: 0.8rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .success {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .warning {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Additional responsive tweaks for very small screens */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      input, button {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+      }
+      .motivation-message {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Login Modal (appears on page load) -->
+<div id="login-modal" class="login-modal">
+  <div class="login-modal-content">
+    <h2>Login to Study Tracker</h2>
+    <input type="text" id="login-username" placeholder="Username" required>
+    <input type="password" id="login-password" placeholder="Password" required>
+    <button id="login-btn">Login</button>
+    <p id="login-error" class="login-error">Invalid credentials. Please try a different password.</p>
+    <p id="attempts-message" class="login-error"></p>
+  </div>
+</div>
+
+
+
+
+
+  
+  <div class="container">
+    <header>
+      <h1>📚 Study Master</h1>
+      <p>Welcome, User! Conquer your 70‑hour weekly study challenge.</p>
+      <nav>
+        <a href="index.html">Homepage</a>
+      </nav>
+    </header>
+    <main>
+      <!-- Weekly Overview Card with Animated Progress Bar -->
+      <section id="challenge-overview" class="card">
+        <h2>Weekly Progress</h2>
+        <p id="week-range"></p>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+          <div class="progress-bar-text" id="progress-bar-text">0 hrs / 70 hrs</div>
+        </div>
+        <div class="countdown" id="countdown-timer">Time left: --d --h --m --s</div>
+        <!-- Motivational message placeholder -->
+        <div id="motivation-message" class="motivation-message">
+          <span>🎯 Set your target and start studying!</span>
+        </div>
+      </section>
+
+      <!-- Study Session Entry Form -->
+      <section id="entry-form" class="card">
+        <h2>Add Study Session</h2>
+        <form id="study-form">
+          <div class="input-group">
+            <label for="study-date">Date</label>
+            <input type="date" id="study-date" value="2025-03-24" required>
+          </div>
+          <div class="input-group">
+            <label>Duration</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="number" id="hours" placeholder="Hours" min="0" required style="flex: 1;">
+              <input type="number" id="minutes" placeholder="Minutes" min="0" max="59" style="flex: 1;">
+            </div>
+          </div>
+          <button type="submit">➕ Add Session</button>
+        </form>
+      </section>
+
+      <!-- Weekly Target Update Form -->
+      <section id="target-update" class="card">
+        <h2>Update Weekly Target</h2>
+        <form id="target-form">
+          <div class="input-group">
+            <label for="target-hours">Target Hours</label>
+            <input type="number" id="target-hours" value="70" min="1" required>
+          </div>
+          <button type="submit">🎯 Update Target</button>
+        </form>
+      </section>
+
+      <!-- Study Sessions Table -->
+      <section id="entries-list" class="card">
+        <h2>Study Sessions</h2>
+        <table id="entries-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Duration (hrs : mins)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Previous Weeks Records -->
+      <section class="card" id="previous-weeks-section">
+        <h2>Previous Week Records</h2>
+        <div id="previous-weeks-container"></div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Confetti for Celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+  <!-- Inline JavaScript -->
+  <script>
+    const STORAGE_KEY = "studyChallengeData";
+    const TARGET_KEY = "weeklyTarget";
+    const REFERENCE_DATE = new Date("2025-03-24");
+
+    // Get the current week range (Monday to Sunday)
+    function getCurrentWeekRange() {
+      let now = new Date();
+      if (now < REFERENCE_DATE) {
+        let sunday = new Date(REFERENCE_DATE);
+        sunday.setDate(REFERENCE_DATE.getDate() + 6);
+        return { monday: REFERENCE_DATE, sunday };
+      }
+      let day = now.getDay() || 7;
+      let diffToMonday = (day === 0 ? -6 : 1 - day);
+      let monday = new Date(now);
+      monday.setDate(now.getDate() + diffToMonday);
+      let sunday = new Date(monday);
+      sunday.setDate(monday.getDate() + 6);
+      return { monday, sunday };
+    }
+
+    function formatDate(date) {
+      return date.toISOString().split("T")[0];
+    }
+
+    function getEntries() {
+      let entries = localStorage.getItem(STORAGE_KEY);
+      return entries ? JSON.parse(entries) : [];
+    }
+
+    function saveEntries(entries) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    }
+
+    function getWeeklyTarget() {
+      let target = localStorage.getItem(TARGET_KEY);
+      return target ? Number(target) : 70;
+    }
+
+    function saveWeeklyTarget(target) {
+      localStorage.setItem(TARGET_KEY, target);
+    }
+
+    // Calculate total study hours for the current week
+    function calculateWeeklyStudy(entries) {
+      let { monday, sunday } = getCurrentWeekRange();
+      let totalMinutes = 0;
+      entries.forEach(entry => {
+        let entryDate = new Date(entry.date);
+        if (entryDate >= monday && entryDate <= sunday) {
+          totalMinutes += Number(entry.hours) * 60 + Number(entry.minutes || 0);
+        }
+      });
+      return totalMinutes / 60;
+    }
+
+    // Update the animated progress bar
+    function updateProgressBar() {
+      const entries = getEntries();
+      const totalHours = calculateWeeklyStudy(entries);
+      const target = getWeeklyTarget();
+      const percentage = Math.min((totalHours / target) * 100, 100);
+      
+      const progressBarFill = document.getElementById("progress-bar-fill");
+      progressBarFill.style.width = percentage + "%";
+      
+      const progressBarText = document.getElementById("progress-bar-text");
+      progressBarText.textContent = `${totalHours.toFixed(1)} hrs / ${target} hrs`;
+    }
+
+    // Update countdown timer until end of week
+    function updateCountdown() {
+      let { sunday } = getCurrentWeekRange();
+      let endOfWeek = new Date(sunday);
+      endOfWeek.setHours(23, 59, 59, 999);
+      let now = new Date();
+      let diff = endOfWeek - now;
+      if (diff < 0) diff = 0;
+      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById("countdown-timer").textContent =
+        `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update overview (week range, progress bar, and motivational message)
+    function updateOverview() {
+      let { monday, sunday } = getCurrentWeekRange();
+      document.getElementById("week-range").textContent =
+        "Week: " + formatDate(monday) + " to " + formatDate(sunday);
+      updateProgressBar();
+      
+      // Update motivational message on week end
+      const totalHours = calculateWeeklyStudy(getEntries());
+      const target = getWeeklyTarget();
+      let now = new Date();
+      if (now > sunday || now.getDay() === 0) {
+        document.getElementById("motivation-message").innerHTML =
+          totalHours >= target ?
+            `<span class="success">🎉 Success! You met your target!</span>` :
+            `<span class="warning">😕 Not quite there. Keep pushing!</span>`;
+        if (totalHours >= target) confetti();
+      } else {
+        document.getElementById("motivation-message").innerHTML = `<span>🎯 Keep it up!</span>`;
+      }
+    }
+
+    // Render study sessions table
+    function renderEntriesTable() {
+      let entries = getEntries();
+      // Sort entries with most recent first
+      entries.sort((a, b) => new Date(b.date) - new Date(a.date));
+      let tbody = document.querySelector("#entries-table tbody");
+      tbody.innerHTML = "";
+      entries.forEach(entry => {
+        let row = document.createElement("tr");
+        row.innerHTML = `<td>${entry.date}</td>
+                         <td>${entry.hours} hrs : ${entry.minutes || 0} mins</td>
+                         <td><span class="delete-btn" onclick="deleteEntry('${entry.date}')">🗑️</span></td>`;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Group entries by week (using Monday as key)
+    function groupEntriesByWeek(entries) {
+      let groups = {};
+      entries.forEach(entry => {
+        let entryDate = new Date(entry.date);
+        let day = entryDate.getDay() || 7;
+        let monday = new Date(entryDate);
+        monday.setDate(entryDate.getDate() - day + 1);
+        let key = formatDate(monday);
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(entry);
+      });
+      return groups;
+    }
+
+    // Render previous weeks records
+    function renderPreviousWeeks() {
+      let entries = getEntries();
+      let { monday: currentMonday } = getCurrentWeekRange();
+      let groups = groupEntriesByWeek(entries);
+      let container = document.getElementById("previous-weeks-container");
+      if (!container) return;
+      container.innerHTML = "";
+      Object.keys(groups).sort().forEach(weekStart => {
+        if (new Date(weekStart) < currentMonday) {
+          let weekEntries = groups[weekStart];
+          let totalMinutes = 0;
+          weekEntries.forEach(entry => {
+            totalMinutes += Number(entry.hours) * 60 + Number(entry.minutes || 0);
+          });
+          let totalHours = totalMinutes / 60;
+          let weekEnd = new Date(weekStart);
+          weekEnd.setDate(weekEnd.getDate() + 6);
+          let card = document.createElement("div");
+          card.className = "previous-week-card";
+          card.innerHTML = `
+            <h3>Week: ${weekStart} to ${formatDate(weekEnd)}</h3>
+            <p>Total Study Time: ${totalHours.toFixed(1)} hrs</p>
+          `;
+          container.appendChild(card);
+        }
+      });
+    }
+
+    // Delete a session entry by date
+    function deleteEntry(date) {
+      let entries = getEntries().filter(entry => entry.date !== date);
+      saveEntries(entries);
+      updateOverview();
+      renderEntriesTable();
+      renderPreviousWeeks();
+    }
+
+    // Event listener for study session form submission
+    document.getElementById("study-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let date = document.getElementById("study-date").value;
+      let hours = document.getElementById("hours").value;
+      let minutes = document.getElementById("minutes").value || 0;
+      if (!date) {
+        alert("Please select a date.");
+        return;
+      }
+      let entries = getEntries();
+      // If an entry exists for the date, add to it; otherwise, create a new entry.
+      let existing = entries.find(entry => entry.date === date);
+      if (existing) {
+        existing.hours = Number(existing.hours) + Number(hours);
+        existing.minutes = Number(existing.minutes) + Number(minutes);
+        if (existing.minutes >= 60) {
+          existing.hours += Math.floor(existing.minutes / 60);
+          existing.minutes = existing.minutes % 60;
+        }
+      } else {
+        entries.push({ date, hours: Number(hours), minutes: Number(minutes) });
+      }
+      saveEntries(entries);
+      updateOverview();
+      renderEntriesTable();
+      renderPreviousWeeks();
+      // Reset form and re-set the default date value
+      this.reset();
+      document.getElementById("study-date").value = "2025-03-24";
+    });
+
+    // Event listener for target update form submission
+    document.getElementById("target-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let target = document.getElementById("target-hours").value;
+      if (target < 1) {
+        alert("Target must be at least 1 hour.");
+        return;
+      }
+      saveWeeklyTarget(target);
+      updateOverview();
+    });
+
+    setInterval(updateCountdown, 1000);
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("study-date").value = "2025-03-24";
+      updateOverview();
+      renderEntriesTable();
+      renderPreviousWeeks();
+      updateCountdown();
+    });
+
+// ----------------------------
+// Enhanced Client-Side Login System
+// ----------------------------
+
+// Hard-coded valid credentials (update these as needed)
+const validUsers = [
+  { username: "kanhabro", password: "kanhabro" },
+  { username: "ombro123", password: "ombro123" },
+  { username: "Kanav123", password: "Kanav123" },
+  { username: "user7290", password: "user7290" }
+];
+
+// Limit login attempts for extra strictness
+let loginAttempts = 0;
+const maxAttempts = 3;
+
+// Function to check credentials
+function checkCredentials(username, password) {
+  return validUsers.some(user => user.username === username && user.password === password);
+}
+
+// Login button handler
+document.getElementById("login-btn").addEventListener("click", () => {
+  const username = document.getElementById("login-username").value.trim();
+  const password = document.getElementById("login-password").value.trim();
+  const errorEl = document.getElementById("login-error");
+  const attemptsMessage = document.getElementById("attempts-message");
+
+  loginAttempts++;
+  
+  if (loginAttempts > maxAttempts) {
+    errorEl.style.display = "none";
+    attemptsMessage.textContent = "Too many failed attempts. Access denied.";
+    document.getElementById("login-btn").disabled = true;
+    return;
+  }
+  
+  if (checkCredentials(username, password)) {
+    // Correct credentials: clear error and save user session
+    errorEl.style.display = "none";
+    attemptsMessage.textContent = "";
+    sessionStorage.setItem("loggedInUser", username);
+    // Hide login modal and show main content
+    document.getElementById("login-modal").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    loadUserProgress(username);
+  } else {
+    errorEl.style.display = "block";
+    attemptsMessage.textContent = `Attempt ${loginAttempts} of ${maxAttempts}`;
+  }
+});
+
+// Function to load user progress (from localStorage keyed by username)
+function loadUserProgress(username) {
+  const progressKey = "progress_" + username;
+  let progressData = localStorage.getItem(progressKey);
+  if (progressData) {
+    console.log("Loaded progress for " + username + ":", JSON.parse(progressData));
+    // Integrate progressData into your tracker UI here...
+  } else {
+    console.log("No progress found for " + username + ". Starting fresh.");
+  }
+}
+
+// On page load, check if user is already logged in
+window.addEventListener("load", () => {
+  const loggedInUser = sessionStorage.getItem("loggedInUser");
+  if (loggedInUser) {
+    document.getElementById("login-modal").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    loadUserProgress(loggedInUser);
+  }
+});
+
+
+
+    
+  </script>
+</body>
+</html>
